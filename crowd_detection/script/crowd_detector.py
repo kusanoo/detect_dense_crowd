@@ -23,8 +23,8 @@ class CrowdDetector(object):
         self.human_detector_sub = rospy.Subscriber("/darknet_ros/bounding_boxes", BoundingBoxes, self.human_detector_callback)
         self.raw_img_sub = rospy.Subscriber("/usb_cam/image_raw", Image, self.img_receive_callback, queue_size = 1)
         self.bridge = CvBridge()
-        self.sailen = "/home/quan/catkin_ws/src/detect_dense_crowd/crowd_detection/script/yuriko_test/20210922_024553.mp3"
-        self.mitsu = "/home/quan/catkin_ws/src/detect_dense_crowd/crowd_detection/script/yuriko_test/20210922_023949.mp3"
+        self.sailen = "/home/kusa/catkin_ws/src/detect_dense_crowd/crowd_detection/script/yuriko_test/20210922_024553.mp3"
+        self.mitsu = "/home/kusa/catkin_ws/src/detect_dense_crowd/crowd_detection/script/yuriko_test/20210922_023949.mp3"
         mixer.init()
         mixer.music.load(self.sailen)
 
@@ -63,7 +63,7 @@ class CrowdDetector(object):
                     group = [copy.deepcopy(check_human), copy.deepcopy(human)]
                     if group not in self.crowd_data:
                         self.crowd_data.append(group)
-            #print("crowd:", len(self.crowd_data))
+            print("crowd:", len(self.crowd_data))
             #print self.crowd_data
             #print
 
